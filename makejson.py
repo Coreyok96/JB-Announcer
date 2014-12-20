@@ -1,16 +1,17 @@
 import os
 
-def format(exp):
+def format(exp, pri):
     filew = open('announcement.json', 'a')
     filew.write('       {\n')
     filew.write('           "date": "' + date + '",\n')
     filew.write('           "expires": "' + str(exp) + '",\n')
+    filew.write('           "priority": "' + pri + '",\n')
     filew.write('           "announcement": "' + announcement + '"\n')
     filew.write('       }\n')
     filew.write('   ]\n')
     filew.write('}\n')
 
-def create(day, topic, exp):
+def create(day, topic, exp, pri):
     global date
     date = day
     global announcement
@@ -25,7 +26,7 @@ def create(day, topic, exp):
         filew = open('announcement.json', 'w')
         filew.write(keep[0:-1] + ',\n')
         filew.close()
-        format(exp)
+        format(exp, pri)
     else:
         filew = open('announcement.json', 'w')
         filew.write('{\n')
